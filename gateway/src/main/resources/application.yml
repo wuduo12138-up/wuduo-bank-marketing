@@ -1,0 +1,58 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+  config:
+    import: optional:nacos:${spring.application.name}.yml
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_HOST:127.0.0.1}:${NACOS_PORT:8848}
+        namespace: ${NACOS_NAMESPACE:}
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:nacos}
+      config:
+        server-addr: ${NACOS_HOST:127.0.0.1}:${NACOS_PORT:8848}
+        namespace: ${NACOS_NAMESPACE:}
+        file-extension: yml
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:nacos}
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: activity
+          uri: lb://activity
+          predicates:
+            - Path=/api/v1/activities/**
+          filters:
+            - StripPrefix=0
+
+        - id: point
+          uri: lb://point
+          predicates:
+            - Path=/api/v1/point/**
+          filters:
+            - StripPrefix=0
+
+        - id: point-mall
+          uri: lb://point-mall
+          predicates:
+            - Path=/api/v1/mall/**
+          filters:
+            - StripPrefix=0
+
+        - id: rights
+          uri: lb://rights
+          predicates:
+            - Path=/api/v1/rights/**
+          filters:
+            - StripPrefix=0
+
+logging:
+  level:
+    org.springframework.cloud.gateway: INFO
