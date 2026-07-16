@@ -2,6 +2,7 @@ package com.wuduo.bank.rights.boot.controller;
 
 import com.wuduo.bank.rights.api.dto.RightsInstanceResponse;
 import com.wuduo.bank.rights.api.dto.RightsIssueRequest;
+import com.wuduo.bank.rights.api.dto.RightsIssueResponse;
 import com.wuduo.bank.rights.application.service.RightsIssueService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ public class RightsInstanceController {
      * Issue rights to a user
      */
     @PostMapping("/issue")
-    public RightsInstanceResponse issue(@Valid @RequestBody RightsIssueRequest request) {
+    public RightsIssueResponse issue(@Valid @RequestBody RightsIssueRequest request) {
         return rightsIssueService.issue(request);
     }
 
@@ -41,5 +42,29 @@ public class RightsInstanceController {
     @GetMapping("/getByUserId")
     public List<RightsInstanceResponse> getByUserId(@RequestParam String userId) {
         return rightsIssueService.getByUserId(userId);
+    }
+
+    /**
+     * Activate a rights instance
+     */
+    @PutMapping("/{instanceNo}/activate")
+    public RightsInstanceResponse activate(@PathVariable String instanceNo) {
+        return rightsIssueService.activate(instanceNo);
+    }
+
+    /**
+     * Use a rights instance
+     */
+    @PutMapping("/{instanceNo}/use")
+    public RightsInstanceResponse use(@PathVariable String instanceNo) {
+        return rightsIssueService.use(instanceNo);
+    }
+
+    /**
+     * Revoke a rights instance
+     */
+    @PutMapping("/{instanceNo}/revoke")
+    public RightsInstanceResponse revoke(@PathVariable String instanceNo) {
+        return rightsIssueService.revoke(instanceNo);
     }
 }

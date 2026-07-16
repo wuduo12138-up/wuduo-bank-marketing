@@ -64,6 +64,11 @@ public class RightsInstance implements Serializable {
     private LocalDateTime useTime;
 
     /**
+     * 供应商订单号
+     */
+    private String supplierOrderNo;
+
+    /**
      * 创建时间
      */
     @TableField(fill = FieldFill.INSERT)

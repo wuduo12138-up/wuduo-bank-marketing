@@ -2,6 +2,7 @@ package com.wuduo.bank.rights.boot.controller;
 
 import com.wuduo.bank.rights.api.dto.RightsDefinitionCreateRequest;
 import com.wuduo.bank.rights.api.dto.RightsDefinitionResponse;
+import com.wuduo.bank.rights.api.dto.RightsDefinitionUpdateRequest;
 import com.wuduo.bank.rights.application.service.RightsDefinitionService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -32,7 +33,7 @@ public class RightsDefinitionController {
      */
     @PutMapping("/{id}")
     public RightsDefinitionResponse update(@PathVariable Long id,
-                                           @Valid @RequestBody RightsDefinitionCreateRequest request) {
+                                           @RequestBody RightsDefinitionUpdateRequest request) {
         return rightsDefinitionService.update(id, request);
     }
 
@@ -49,7 +50,24 @@ public class RightsDefinitionController {
      */
     @GetMapping("/page")
     public List<RightsDefinitionResponse> page(@RequestParam(defaultValue = "1") Integer pageNum,
-                                                @RequestParam(defaultValue = "10") Integer pageSize) {
-        return rightsDefinitionService.page(pageNum, pageSize);
+                                                @RequestParam(defaultValue = "10") Integer pageSize,
+                                                @RequestParam(required = false) Integer type) {
+        return rightsDefinitionService.page(pageNum, pageSize, type);
+    }
+
+    /**
+     * Enable a rights definition
+     */
+    @PutMapping("/{id}/enable")
+    public void enable(@PathVariable Long id) {
+        rightsDefinitionService.enable(id);
+    }
+
+    /**
+     * Disable a rights definition
+     */
+    @PutMapping("/{id}/disable")
+    public void disable(@PathVariable Long id) {
+        rightsDefinitionService.disable(id);
     }
 }

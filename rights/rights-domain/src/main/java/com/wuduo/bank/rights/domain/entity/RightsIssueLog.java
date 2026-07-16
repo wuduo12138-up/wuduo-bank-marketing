@@ -54,6 +54,16 @@ public class RightsIssueLog implements Serializable {
     private Integer operationResult;
 
     /**
+     * 重试次数
+     */
+    private Integer retryCount;
+
+    /**
+     * 错误信息
+     */
+    private String errorMsg;
+
+    /**
      * 备注信息
      */
     private String remark;

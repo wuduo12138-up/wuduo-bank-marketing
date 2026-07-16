@@ -2,7 +2,7 @@ package com.wuduo.bank.rights.application.service;
 
 import com.wuduo.bank.rights.api.dto.RightsDefinitionCreateRequest;
 import com.wuduo.bank.rights.api.dto.RightsDefinitionResponse;
-import com.wuduo.bank.rights.domain.entity.RightsDefinition;
+import com.wuduo.bank.rights.api.dto.RightsDefinitionUpdateRequest;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public interface RightsDefinitionService {
     /**
      * Update an existing rights definition
      */
-    RightsDefinitionResponse update(Long id, RightsDefinitionCreateRequest request);
+    RightsDefinitionResponse update(Long id, RightsDefinitionUpdateRequest request);
 
     /**
      * Get rights definition by ID
@@ -29,6 +29,15 @@ public interface RightsDefinitionService {
     /**
      * Page query rights definitions
      */
-    // TODO: Define proper page request/response types based on common module
-    List<RightsDefinitionResponse> page(Integer pageNum, Integer pageSize);
+    List<RightsDefinitionResponse> page(Integer pageNum, Integer pageSize, Integer type);
+
+    /**
+     * Enable a rights definition
+     */
+    void enable(Long id);
+
+    /**
+     * Disable a rights definition
+     */
+    void disable(Long id);
 }

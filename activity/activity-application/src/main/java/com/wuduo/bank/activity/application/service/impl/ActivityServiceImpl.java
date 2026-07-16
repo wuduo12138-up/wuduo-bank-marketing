@@ -413,7 +413,7 @@ public class ActivityServiceImpl implements ActivityService {
         }
         // Fallback: find is_online=1 version
         return versionMapper.selectOne(
-                new LambdaQueryWrapper<ActivityVersion>()
+            new LambdaQueryWrapper<ActivityVersion>()
                         .eq(ActivityVersion::getActivityId, activity.getId())
                         .eq(ActivityVersion::getIsOnline, 1)
                         .last("LIMIT 1"));

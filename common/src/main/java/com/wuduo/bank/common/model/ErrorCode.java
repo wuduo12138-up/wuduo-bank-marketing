@@ -63,7 +63,11 @@ public enum ErrorCode {
     RIGHTS_STOCK_INSUFFICIENT("40001", "权益库存不足"),
     RIGHTS_ISSUE_FAILED("40002", "权益发放失败"),
     RIGHTS_NOT_FOUND("40003", "权益不存在"),
-    RIGHTS_EXPIRED("40004", "权益已过期");
+    RIGHTS_EXPIRED("40004", "权益已过期"),
+    RIGHTS_INSTANCE_NOT_FOUND("40005", "权益凭证不存在"),
+    RIGHTS_STATUS_INVALID("40006", "权益状态不合法"),
+    RIGHTS_DEFINITION_DISABLED("40007", "权益定义已禁用"),
+    RIGHTS_SUPPLIER_ERROR("40008", "供应商调用失败");
 
     private final String code;
     private final String message;
