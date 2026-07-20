@@ -33,6 +33,18 @@
         </dependency>
 
         <dependency>
+            <groupId>com.wuduo.bank</groupId>
+            <artifactId>point-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.wuduo.bank</groupId>
+            <artifactId>rights-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>

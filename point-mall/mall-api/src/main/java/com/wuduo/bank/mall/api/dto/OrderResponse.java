@@ -30,5 +30,9 @@ public class OrderResponse {
 
     private String rightsCode;
 
+    private String rightsInstanceNo;
+
+    private Integer category;
+
     private LocalDateTime createdAt;
 }

@@ -23,7 +23,7 @@ public interface OrderService {
     /**
      * Paginated order list
      */
-    List<OrderResponse> page(Integer pageNum, Integer pageSize);
+    List<OrderResponse> page(Long userId, Integer pageNum, Integer pageSize);
 
     /**
      * Cancel an order

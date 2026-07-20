@@ -58,6 +58,8 @@ public enum ErrorCode {
     MALL_ORDER_NOT_FOUND("30002", "订单不存在"),
     MALL_PRODUCT_NOT_FOUND("30003", "商品不存在"),
     MALL_PRODUCT_OFF_SHELF("30004", "商品已下架"),
+    MALL_ORDER_STATUS_INVALID("30005", "订单状态不合法"),
+    MALL_POINT_OPERATION_FAILED("30006", "积分操作失败，请重试"),
 
     // 权益 40xxx
     RIGHTS_STOCK_INSUFFICIENT("40001", "权益库存不足"),

@@ -10,6 +10,9 @@ import lombok.Data;
 @Data
 public class OrderCreateRequest {
 
+    @NotNull(message = "User ID cannot be null")
+    private Long userId;
+
     @NotBlank(message = "Product code cannot be blank")
     private String productCode;
 

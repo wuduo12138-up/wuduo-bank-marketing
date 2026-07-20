@@ -29,4 +29,6 @@ public class ProductCreateRequest {
     private String images;
 
     private String description;
+
+    private String rightsCode;
 }

@@ -33,6 +33,8 @@ public class MallOrder {
 
     private String rightsCode;
 
+    private String rightsInstanceNo;
+
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
 

@@ -5,14 +5,11 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 /**
- * Product response DTO
+ * Product update request DTO.
+ * All fields are optional — only non-null fields will be merged.
  */
 @Data
-public class ProductResponse {
-
-    private Long id;
-
-    private String productCode;
+public class ProductUpdateRequest {
 
     private String name;
 
@@ -24,15 +21,11 @@ public class ProductResponse {
 
     private Integer totalStock;
 
-    private Integer availableStock;
-
-    private Integer status;
-
-    private Integer displayOrder;
-
     private String images;
 
     private String description;
+
+    private Integer displayOrder;
 
     private String rightsCode;
 }

@@ -2,6 +2,7 @@ package com.wuduo.bank.mall.application.service;
 
 import com.wuduo.bank.mall.api.dto.ProductCreateRequest;
 import com.wuduo.bank.mall.api.dto.ProductResponse;
+import com.wuduo.bank.mall.api.dto.ProductUpdateRequest;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public interface ProductService {
     /**
      * Update an existing product
      */
-    ProductResponse update(Long id, ProductCreateRequest request);
+    ProductResponse update(Long id, ProductUpdateRequest request);
 
     /**
      * Get product by ID
@@ -28,7 +29,7 @@ public interface ProductService {
     /**
      * Paginated product list
      */
-    List<ProductResponse> page(Integer pageNum, Integer pageSize);
+    List<ProductResponse> page(Integer pageNum, Integer pageSize, Integer category);
 
     /**
      * Toggle product on/off shelf

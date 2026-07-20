@@ -38,6 +38,8 @@ public class MallProduct {
 
     private String description;
 
+    private String rightsCode;
+
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
 

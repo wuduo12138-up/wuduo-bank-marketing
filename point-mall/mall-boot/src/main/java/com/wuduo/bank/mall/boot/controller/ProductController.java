@@ -2,6 +2,7 @@ package com.wuduo.bank.mall.boot.controller;
 
 import com.wuduo.bank.mall.api.dto.ProductCreateRequest;
 import com.wuduo.bank.mall.api.dto.ProductResponse;
+import com.wuduo.bank.mall.api.dto.ProductUpdateRequest;
 import com.wuduo.bank.mall.application.service.ProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +29,7 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public ResponseEntity<ProductResponse> update(@PathVariable Long id,
-                                                  @Valid @RequestBody ProductCreateRequest request) {
+                                                  @RequestBody ProductUpdateRequest request) {
         return ResponseEntity.ok(productService.update(id, request));
     }
 
@@ -39,8 +40,9 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<ProductResponse>> page(@RequestParam(defaultValue = "1") Integer pageNum,
-                                                      @RequestParam(defaultValue = "10") Integer pageSize) {
-        return ResponseEntity.ok(productService.page(pageNum, pageSize));
+                                                      @RequestParam(defaultValue = "10") Integer pageSize,
+                                                      @RequestParam(required = false) Integer category) {
+        return ResponseEntity.ok(productService.page(pageNum, pageSize, category));
     }
 
     @PutMapping("/{id}/shelf")

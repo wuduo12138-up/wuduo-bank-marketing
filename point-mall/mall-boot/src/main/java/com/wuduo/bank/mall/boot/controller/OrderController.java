@@ -32,9 +32,10 @@ public class OrderController {
     }
 
     @GetMapping
-    public ResponseEntity<List<OrderResponse>> page(@RequestParam(defaultValue = "1") Integer pageNum,
+    public ResponseEntity<List<OrderResponse>> page(@RequestParam(required = false) Long userId,
+                                                    @RequestParam(defaultValue = "1") Integer pageNum,
                                                     @RequestParam(defaultValue = "10") Integer pageSize) {
-        return ResponseEntity.ok(orderService.page(pageNum, pageSize));
+        return ResponseEntity.ok(orderService.page(userId, pageNum, pageSize));
     }
 
     @PutMapping("/{id}/cancel")
